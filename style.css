@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+}
+
+header {
+  background-color: #13274f;
+  color: whitesmoke;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h2 {
+  font-size: 30px;
+}
+
+header button {
+  background-color: pink;
+  color: rgb(102, 101, 101);
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header button:hover {
+  color: black;
+}
+
+th,
+td {
+  border: 1px solid black;
+  width: 200px;
+  text-align: center;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+dialog {
+  margin: 0 auto;
+  margin-top: 15rem;
+}
+
+dialog input[type="text"],
+input[type="number"],
+button {
+  margin: 0 20px;
+}
+
+dialog h2,
+span {
+  text-align: center;
+}
+
+dialog h2 {
+  margin-top: 10px;
+}
+
+dialog button {
+  margin-bottom: 10px;
+}
+
+dialog span label,
+input {
+  vertical-align: middle;
+}
+
+.remove {
+  cursor: pointer;
+}

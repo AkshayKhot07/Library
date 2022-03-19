@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h2>Library</h2>
+        <button class="add-books">+ Add Books</button>
+      </header>
+      <table id="table">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Status</th>
+          <th>Removal</th>
+        </tr>
+      </table>
+    </div>
+
+    <dialog id="modal" style="padding: 0">
+      <form method="dialog" id="form">
+        <h2>Add new book</h2>
+        <input type="text" placeholder="Title" id="bookTitle" required />
+        <input type="text" placeholder="Author" id="bookAuthor" required />
+        <input type="number" placeholder="Pages" id="bookPages" required />
+        <span>
+          <label for="checkbox">Have your read it?</label>
+          <input type="checkbox" id="readStatus" />
+        </span>
+        <button class="book-info-btn" type="submit">Submit</button>
+      </form>
+    </dialog>
+    <script src="./script.js"></script>
+  </body>
+</html>
