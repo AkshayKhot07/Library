@@ -1,13 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Dancing+Script&family=Festive&family=Moo+Lah+Lah&family=PT+Sans+Narrow&family=Poppins:wght@300&family=Roboto:wght@100&family=Rock+Salt&family=VT323&family=Indie+Flower&display=swap");
+
 * {
   margin: 0;
 }
 
+.container {
+  height: 100vh;
+  background-color: antiquewhite;
+  opacity: 0.8;
+  background-image: radial-gradient(#444cf7 0.5px, antiquewhite 0.5px);
+  background-size: 10px 10px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  table-layout: fixed;
+  width: 1200px;
+}
+
+th {
+  /* border: 1px solid black; */
+  background-color: pink;
+  height: 30px;
+  text-align: center;
+  font-family: "VT323", sans-serif;
+}
+
+td {
+  /* border-top: 1px solid black; */
+  border-bottom: 1px solid black;
+  text-align: center;
+  word-wrap: break-word;
+  font-family: "VT323", sans-serif;
+}
+
 header {
-  background-color: #13274f;
+  background-color: #134b4f;
   color: whitesmoke;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
+  font-family: "Indie Flower", sans-serif;
 }
 
 header h2 {
@@ -23,17 +62,11 @@ header button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: "Indie Flower", sans-serif;
 }
 
 header button:hover {
   color: black;
-}
-
-th,
-td {
-  border: 1px solid black;
-  width: 200px;
-  text-align: center;
 }
 
 dialog form {

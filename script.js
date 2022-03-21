@@ -113,7 +113,7 @@ removeBook();
 
 function changeReadStatus() {
   let allBooks = Array.from(document.querySelectorAll(".book-info"));
-  console.log(allBooks);
+  // console.log(allBooks);
 
   allBooks.forEach((book) => {
     let readStatustd = book.getElementsByTagName("td")[3];
@@ -178,12 +178,12 @@ form.addEventListener("submit", function (e) {
     );
   }
 
-  console.log(newBook.title);
+  // console.log(newBook.title);
 
   let myLibrary = JSON.parse(localStorage.getItem("books")) || [];
 
   myLibrary.push(newBook);
-  console.log(myLibrary);
+  // console.log(myLibrary);
   addBookToLibrary([newBook]);
 
   localStorage.setItem("books", JSON.stringify(myLibrary));
