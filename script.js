@@ -1,21 +1,19 @@
 "use strict";
 
 let table = document.getElementById("table");
-// console.log(table);
-
 const addBooks = document.querySelector(".add-books");
 const modal = document.getElementById("modal");
 
+//Constructor function
 function Book(title, author, pages, status) {
-  // the constructor...
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.status = status;
 }
 
+//Creates HTML elements to add book info rows
 function addBookToLibrary(arr) {
-  // do stuff here
   let tableRow;
   arr.forEach((obj) => {
     if (obj.status === "Not Read") {
@@ -46,18 +44,18 @@ function addBookToLibrary(arr) {
   });
 }
 
+//Modal or dialog popup/open and close
 addBooks.addEventListener("click", (e) => {
   modal.showModal();
 });
 
 document.addEventListener("click", (e) => {
-  // console.log(e.target);
   if (e.target === modal) {
     modal.close();
   }
 });
 
-///// Book Info //////
+//Modal book info selectors
 const form = document.getElementById("form");
 const submitBtn = document.querySelector(".book-info-btn");
 
@@ -66,7 +64,7 @@ let bookAuthor = document.getElementById("bookAuthor");
 let bookPages = document.getElementById("bookPages");
 let readStatus = document.getElementById("readStatus");
 
-//Books from Local Storage
+//Render books from LS if any on page reload or browser start
 function booksLocalStorage() {
   let booksls = JSON.parse(localStorage.getItem("books"));
   // console.log(booksls);
@@ -78,8 +76,7 @@ function booksLocalStorage() {
 
 booksLocalStorage();
 
-/**********Delete Book details*************/
-
+// Delete/Remove Book details
 function removeBook() {
   let allBooks = Array.from(document.querySelectorAll(".book-info"));
   // console.log(allBooks);
@@ -107,10 +104,7 @@ function removeBook() {
 
 removeBook();
 
-/**********Delete Book details*************/
-
-/**********Change Book Read status*************/
-
+// Change Book Read status
 function changeReadStatus() {
   let allBooks = Array.from(document.querySelectorAll(".book-info"));
   // console.log(allBooks);
@@ -157,8 +151,7 @@ function changeReadStatus() {
 
 changeReadStatus();
 
-/**********Change Book Read status*************/
-
+//Submit book information
 form.addEventListener("submit", function (e) {
   let newBook;
 
@@ -178,16 +171,17 @@ form.addEventListener("submit", function (e) {
     );
   }
 
-  // console.log(newBook.title);
-
   let myLibrary = JSON.parse(localStorage.getItem("books")) || [];
 
   myLibrary.push(newBook);
   // console.log(myLibrary);
+
+  //Render HTML of the book details submitted
   addBookToLibrary([newBook]);
 
+  //Set book info to local storage
   localStorage.setItem("books", JSON.stringify(myLibrary));
-  // addBookToLibrary(myLibrary);
+
   form.reset();
   removeBook();
   changeReadStatus();
