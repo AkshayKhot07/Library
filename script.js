@@ -1,7 +1,7 @@
 "use strict";
 
 let table = document.getElementById("table");
-console.log(table);
+// console.log(table);
 
 const addBooks = document.querySelector(".add-books");
 const modal = document.getElementById("modal");
@@ -13,9 +13,6 @@ function Book(title, author, pages, status) {
   this.pages = pages;
   this.status = status;
 }
-
-const book = new Book("GoLang");
-console.log(book.title);
 
 function addBookToLibrary(arr) {
   // do stuff here
@@ -72,7 +69,7 @@ let readStatus = document.getElementById("readStatus");
 //Books from Local Storage
 function booksLocalStorage() {
   let booksls = JSON.parse(localStorage.getItem("books"));
-  console.log(booksls);
+  // console.log(booksls);
 
   if (booksls !== null) {
     addBookToLibrary(booksls);
@@ -85,7 +82,7 @@ booksLocalStorage();
 
 function removeBook() {
   let allBooks = Array.from(document.querySelectorAll(".book-info"));
-  console.log(allBooks);
+  // console.log(allBooks);
 
   allBooks.forEach((book) => {
     let removeBook = book.getElementsByTagName("td")[4];
@@ -111,6 +108,56 @@ function removeBook() {
 removeBook();
 
 /**********Delete Book details*************/
+
+/**********Change Book Read status*************/
+
+function changeReadStatus() {
+  let allBooks = Array.from(document.querySelectorAll(".book-info"));
+  console.log(allBooks);
+
+  allBooks.forEach((book) => {
+    let readStatustd = book.getElementsByTagName("td")[3];
+    let readStatus = book.getElementsByTagName("td")[3].children[0];
+
+    readStatus.addEventListener("click", (e) => {
+      if (e.target.classList.contains("fa-xmark")) {
+        readStatus.classList.remove("fa-xmark");
+        readStatus.classList.add("fa-check");
+        console.log(readStatus);
+
+        let booksls = JSON.parse(localStorage.getItem("books"));
+        for (let i = 0; i < booksls.length; i++) {
+          if (
+            booksls[i].title + booksls[i].author + booksls[i].pages ===
+            book.dataset.identifier
+          ) {
+            booksls[i].status = "Read";
+            localStorage.setItem("books", JSON.stringify(booksls));
+          }
+        }
+      } else if (e.target.classList.contains("fa-check")) {
+        readStatus.classList.remove("fa-check");
+        readStatus.classList.add("fa-xmark");
+        console.log(readStatus);
+
+        let booksls = JSON.parse(localStorage.getItem("books"));
+        for (let i = 0; i < booksls.length; i++) {
+          if (
+            booksls[i].title + booksls[i].author + booksls[i].pages ===
+            book.dataset.identifier
+          ) {
+            booksls[i].status = "Not Read";
+            localStorage.setItem("books", JSON.stringify(booksls));
+          }
+        }
+      }
+    });
+  });
+}
+
+changeReadStatus();
+
+/**********Change Book Read status*************/
 
 form.addEventListener("submit", function (e) {
   let newBook;
@@ -141,5 +188,7 @@ form.addEventListener("submit", function (e) {
 
   localStorage.setItem("books", JSON.stringify(myLibrary));
   // addBookToLibrary(myLibrary);
+  form.reset();
   removeBook();
+  changeReadStatus();
 });

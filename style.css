@@ -71,6 +71,7 @@ input {
   vertical-align: middle;
 }
 
-.remove {
+.remove,
+.fa-solid {
   cursor: pointer;
 }
